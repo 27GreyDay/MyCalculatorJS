@@ -14,13 +14,17 @@ let isSecondValue = false
 let sign = ""
 let resultValue = 0
 
+if(localStorage.getItem('theme') == 'true') {
+    document.body.setAttribute('dark', '')
+}
+
 for (let i = 0; i < numbers.length; i++) {
     numbers[i].addEventListener('click', () => {
         let atr = numbers[i].innerHTML
-        if (isFirstValue == false) {
+        if (isFirstValue == false && firstValue.length <= 7) {
             getFirstValue(atr)
         }
-        if (isSecondValue == false) {
+        if (isSecondValue == false && secondValue.length <= 7) {
             getSecondValue(atr)
         }
     })
@@ -29,13 +33,11 @@ function getFirstValue(el) {
     result.innerHTML = ""
     firstValue += el
     result.innerHTML = firstValue
-    firstValue = +firstValue
 }
 function getSecondValue(el) {
     if (firstValue != "" && sign != "") {
         secondValue += el
         result.innerHTML = secondValue
-        secondValue = +secondValue
     }
 }
 
@@ -51,6 +53,8 @@ getSign();
 
 equals.addEventListener('click', () => {
     result.innerHTML = ""
+    secondValue = +secondValue
+    firstValue = +firstValue
     if (sign == "+") {
         resultValue = firstValue + secondValue
     } else if (sign == "-") {
@@ -70,7 +74,7 @@ function checkResultLength() {
     resultValue = JSON.stringify(resultValue)
     if (resultValue.length >= 8) {
         resultValue = JSON.parse(resultValue)
-        result.innerHTML = resultValue.toFixed(5)
+        result.innerHTML = +resultValue.toFixed(5)
     }
 }
 
@@ -109,9 +113,10 @@ allClear.addEventListener('click', () => {
 })
 // Тема
 function dark() {
+    localStorage.setItem('theme', true)
     document.body.setAttribute('dark', '')
 }
-
 function shining() {
+    localStorage.setItem('theme', false)
     document.body.removeAttribute('dark')
 }
