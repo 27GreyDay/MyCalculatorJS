@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+:root {
+    --var-1color: #fff;
+    --var-fontcolor: #292d36;
+    --var-bcolor: #f9f9f9;
+    --var-bscolor: #f7f7f7;
+    --var-nbscolor: #bdbdbd;
+    --var-mooncolor: #dedede;
+    --var-suncolor: #292d36;
+}
+[dark] {
+    --var-1color: #22252d;
+    --var-fontcolor: #fff;
+    --var-bcolor: #292d36;
+    --var-bscolor: #272b33;
+    --var-nbscolor: #3c3f45;
+    --var-mooncolor: #fff;
+    --var-suncolor: #74767c;
+}
+html, body {
+    background-color: var(--var-1color);
+    height: 100%;
+    font-family: 'Oswald', sans-serif;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.tema {
+    margin-top: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    background-color: var(--var-bcolor);
+    text-align: center;
+}
+.moon {
+    fill: var(--var-mooncolor); 
+    width: 22px; 
+    height: 22px;
+    padding-bottom: 9px;
+    margin-right: 25px;
+}
+.sun {
+    margin-top: 4px;
+    fill: var(--var-suncolor); 
+    width: 40px; 
+    height: 40px;
+}
+
+.result {
+    display: flex;
+    align-items: flex-end;
+    flex: 1 0 auto;
+    color: var(--var-fontcolor);
+    font-size: 50px;
+    padding-right: 30px;
+    margin-bottom: 25px;
+    justify-content: flex-end;
+}
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: var(--var-bcolor);
+    padding: 40px 20px;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    justify-items: center;
+    flex: 0 0 auto;
+}
+/* кнопки */
+.item {
+    background-color: var(--var-bscolor);
+    color: var(--var-fontcolor);
+    width: 70px;
+    height: 70px;
+    border-radius: 20%;
+    font-size: 25px;
+}
+.item:active {
+    background-color: var(--var-nbscolor);
+}
+/* Цвета знаков справа */
+.buttons, .equally, .sign {
+    color: #f57b7b;
+    font-size: 35px;
+}
+.buttons, .percent, .clear, .all_clear {
+    color: #26f6d0;
+}
+.buttons, .x {
+    font-size: large;
+}
